@@ -15,6 +15,7 @@ Start here, in this order if you want the story:
 6. `toys/ribbon-wave.html` — ESA talked about the ribbon more than the stamp.
 7. `toys/heat-pump.html` — Stallard 2026: the radio day is a pump. 480 K / 400 K.
 8. `toys/until-2040s.html` — Voyager → Cassini → Webb → polar night.
+9. `toys/missing-arms.html` — four dark CH4 arms, two gone. GRL does not know why.
 
 Gallery: `gallery.html`. Front door: `index.html`.
 
