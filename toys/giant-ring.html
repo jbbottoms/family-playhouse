@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>300 Saturns — the Phoebe spray</title>
+  <style>
+    :root { color-scheme: dark; }
+    html, body { margin: 0; background: #07080c; color: #e8e0d4; font-family: Georgia, serif; }
+    header { padding: 28px 36px 8px; }
+    h1 { font-weight: 400; font-size: 30px; margin: 0 0 8px; }
+    .lede { max-width: 46rem; line-height: 1.55; color: #b9b0a4; }
+    .warn { color: #e6c36a; }
+    a { color: #8ec8c8; }
+    .compare { padding: 4px 36px 8px; max-width: 960px; }
+    svg { width: 100%; height: auto; display: block; }
+    .wall { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; padding: 8px 36px 56px; }
+    figure { margin: 0; background: #11131a; display: flex; flex-direction: column; }
+    figure.wide { grid-column: 1 / -1; }
+    img { width: 100%; height: 300px; object-fit: cover; display: block; background: #0a0b10; }
+    .wide img { height: 420px; }
+    figcaption { padding: 12px 14px 16px; font-size: 15px; line-height: 1.5; color: #b9b0a4; }
+    figcaption strong { display: block; color: #e8e0d4; font-weight: 400; font-size: 18px; margin-bottom: 6px; }
+    .id { font-family: ui-sans-serif, system-ui, sans-serif; font-size: 11px;
+      letter-spacing: .12em; text-transform: uppercase; color: #6f6860; }
+    @media (max-width: 800px) { .wall { grid-template-columns: 1fr; } }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>300 Saturns</h1>
+    <p class="lede warn">Dad said captions help him learn. The paint can is not just a moon. It sits inside a spray cloud so big the planet is a speck. Spitzer found it in 2009 because it is warm dust, not shiny ice.</p>
+    <p class="lede">JPL: if you could see it, it would span two full moons of sky, one on either side of Saturn. <a href="phoebe.html">paint can</a> · <a href="lookalikes.html">lookalikes</a> · <a href="../SATURN.md">map</a> · <a href="../index.html">home</a></p>
+  </header>
+  <div class="compare">
+    <svg viewBox="0 0 960 220" role="img" aria-label="Phoebe ring is 20 Saturns thick and 300 Saturns across">
+      <rect width="960" height="220" fill="#07080c" />
+      <text x="20" y="28" fill="#6f6860" font-size="12" font-family="ui-sans-serif, system-ui">JPL 2009 · how many Saturns fit</text>
+      <rect x="20" y="50" width="8" height="28" fill="#8ec8c8" />
+      <text x="40" y="70" fill="#e8e0d4" font-size="16" font-family="Georgia, serif">1 — Saturn itself</text>
+      <rect x="20" y="96" width="160" height="28" fill="#c99b46" />
+      <text x="190" y="116" fill="#e8e0d4" font-size="16" font-family="Georgia, serif">20 — how thick the spray is</text>
+      <rect x="20" y="142" width="900" height="28" fill="#e07a5f" />
+      <text x="20" y="196" fill="#e8e0d4" font-size="16" font-family="Georgia, serif">300 — how many Saturns lined up across the ring</text>
+    </svg>
+  </div>
+  <div class="wall">
+    <figure>
+      <img src="https://www.spitzer.caltech.edu/system/avm_images/binaries/2766/larger/ssc2009-19a.jpg" alt="Spitzer 24-micron slice of the Phoebe ring edge-on" />
+      <figcaption>
+        <span class="id">ssc2009-19a · Infrared Ring Around Saturn · Spitzer MIPS 24 µm</span>
+        <strong>This is the real detection. A red stripe.</strong>
+        Not a postcard. Spitzer looked edge-on from its Earth-trailing orbit and saw heat from cool dust, about 80 K. The inset red band is the ring. JPL 7 Oct 2009: bulk starts about 6 million km from Saturn and runs out another 12 million km. Phoebe lives in that belt. Tilted 27° off the pretty rings.
+      </figcaption>
+    </figure>
+    <figure>
+      <img src="https://www.spitzer.caltech.edu/system/avm_images/binaries/2762/larger/ssc2009-19b.jpg" alt="Diagram of the huge Phoebe ring around Saturn" />
+      <figcaption>
+        <span class="id">ssc2009-19b · The King of Rings · NASA / JPL-Caltech / K. Don</span>
+        <strong>This diagram is a teaching picture. The ring is drawn.</strong>
+        NASA says so: Saturn, Phoebe, and Iapetus are Cassini stills. The halo is an artist. Phoebe is enlarged so you can see it. Thickness about 20 Saturn diameters. Volume enough for one billion Earths. You would not know you were inside — the grains are that far apart.
+      </figcaption>
+    </figure>
+    <figure>
+      <img src="https://images-assets.nasa.gov/image/PIA06064/PIA06064~orig.jpg" alt="Cassini mosaic of Phoebe" />
+      <figcaption>
+        <span class="id">PIA06064 · The Face of Phoebe</span>
+        <strong>The can inside the spray.</strong>
+        213 km. Albedo 6%. Retrograde, like the ring. JPL: the ring circles the same way Phoebe does. Most other moons, including Iapetus, go the other way. Dark dust drifting inward hits Iapetus’s leading face like bugs on a windshield.
+      </figcaption>
+    </figure>
+    <figure>
+      <img src="https://images-assets.nasa.gov/image/PIA11690/PIA11690~orig.jpg" alt="Iapetus two faces" />
+      <figcaption>
+        <span class="id">PIA11690 · Iapetus two faces</span>
+        <strong>The windshield.</strong>
+        Hamilton (JPL 2009): astronomers long suspected Phoebe dust on Iapetus. “This new ring provides convincing evidence of that relationship.” That is the discovery paper talking. The Cassini mosaics still do not pick interior paint vs outer-moon paint for the ridge. Two sentences can both be true: the ring is real; the last coat on Iapetus is not fully closed.
+      </figcaption>
+    </figure>
+  </div>
+</body>
+</html>

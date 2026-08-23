@@ -24,6 +24,7 @@ Start here, in this order if you want the story:
 15. `toys/house.html` — reason five opened. South hurricane vs north rose. Enceladus phosphate. Titan lakes. Pan/Atlas skirts. Anthe arc. B-ring moonlet. Tethys/Odysseus.
 16. `toys/lookalikes.html` — Herschel is not Odysseus. Mimas 33%, Tethys 42%, Iapetus two faces 15× brighter.
 17. `toys/phoebe.html` — paint can. Phoebe 213 km, albedo 6%, retrograde, ice under a dark coat. Iapetus paint is a *may*. Hyperion is the sponge that cannot keep dust.
+18. `toys/giant-ring.html` — 300 Saturns. Spitzer 2009 Phoebe ring. Bulk 6–18 million km. 20 Saturns thick. 27° tilt. Wrong-way traffic. The red stripe is data; the halo drawing is art.
 
 Gallery: `gallery.html`. Front door: `index.html`.
 
