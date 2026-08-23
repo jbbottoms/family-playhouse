@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Ring seismograph</title>
+<style>
+  :root { color-scheme: dark; }
+  html, body { margin: 0; background: #07080c; color: #e8e0d4; font-family: Georgia, serif; }
+  .wrap { display: grid; grid-template-columns: 1fr 320px; min-height: 100vh; }
+  canvas { width: 100%; height: 100vh; display: block; }
+  aside { padding: 28px 24px; border-left: 1px solid #1b1e28; font-size: 14px; line-height: 1.5; color: #b9b0a4; }
+  aside h1 { font-weight: 400; font-size: 22px; margin: 0 0 6px; color: #e8e0d4; letter-spacing: .03em; }
+  .eyebrow { font-family: ui-sans-serif, system-ui, sans-serif; font-size: 11px; letter-spacing: .14em; text-transform: uppercase; color: #6f6860; }
+  .warn { color: #e6c36a; }
+  label { display: block; margin: 14px 0 4px; font-family: ui-sans-serif, system-ui, sans-serif; font-size: 12px; color: #9a9288; }
+  input[type=range] { width: 100%; accent-color: #8ec8c8; }
+  .read { font-family: ui-monospace, Menlo, monospace; font-size: 13px; color: #8ec8c8; }
+  .in { color: #8ec8c8; } .out { color: #e07a5f; }
+  p { margin: 10px 0; }
+  a { color: #8ec8c8; }
+  small { color: #6f6860; }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <canvas id="c"></canvas>
+  <aside>
+    <div class="eyebrow">Playhouse · Orion · C ring</div>
+    <h1>ring seismograph</h1>
+    <p class="warn">How anyone measured Saturn's day at all: the rings heard the planet ring.</p>
+    <p>Saturn rings like a bell. A mode with <em>m</em> lobes sweeps its pattern round at one speed. Where ring particles orbit at exactly <em>m</em>/(<em>m</em>+1) of that speed, they pile into a spiral wave. One mode, one mark, one radius.</p>
+
+    <label>lobes m <span class="read" id="mv">2</span></label>
+    <input type="range" id="m" min="2" max="10" step="1" value="2">
+    <label>pattern period (hours) <span class="read" id="pv">10.6</span></label>
+    <input type="range" id="p" min="6" max="16" step="0.05" value="10.6">
+
+    <p class="read">resonance at <span id="rv">—</span> km <span id="inring"></span></p>
+    <p><small>Kepler orbits around GM = 3.793×10<sup>16</sup> m³/s². Outer Lindblad resonance. C ring spans 74,658 to 92,000 km; Saturn's cloud tops at 60,268. Pattern speeds are schematic, radii are real.</small></p>
+
+    <p>Real marks, all <em>m</em>=2, read by Cassini watching stars blink through the ring: W76.44, W84.64, W87.19 (km ×1000). Twenty-odd waves in all.</p>
+    <p>From the notes: bulk day <span class="read">10h 33m 38s</span>, and a fuzzy core, rock and ice smeared out to 60% of the radius, about 17 Earths of it. Mankovich &amp; Fuller 2021.</p>
+    <p><small>Kai's clocks count the hexagon and the radio. This is the third clock, the one inside. <a href="three-clocks.html">three clocks</a> · <a href="../index.html">front door</a></small></p>
+  </aside>
+</div>
+<script>
+const GM = 3.793e16, RS = 60268, C0 = 74658, C1 = 92000, RMAX = 100000;
+const cv = document.getElementById('c'), ctx = cv.getContext('2d');
+const mS = document.getElementById('m'), pS = document.getElementById('p');
+const mv = document.getElementById('mv'), pv = document.getElementById('pv'), rv = document.getElementById('rv'), inring = document.getElementById('inring');
+let W, H, S;
+function size(){ W = cv.width = cv.clientWidth * devicePixelRatio; H = cv.height = cv.clientHeight * devicePixelRatio; S = Math.min(W, H) * 0.46 / RMAX; }
+addEventListener('resize', size); size();
+// ring particles: random radii weighted toward the C ring, Kepler angular speed
+const N = 2600, P = [];
+for (let i = 0; i < N; i++) {
+  const r = 66000 + Math.pow(Math.random(), 0.7) * (RMAX - 66000);
+  P.push({ r, th: Math.random() * Math.PI * 2, w: Math.sqrt(GM / Math.pow(r * 1000, 3)) });
+}
+function resonance(m, hours){ const Op = 2 * Math.PI / (hours * 3600); const Om = Op * m / (m + 1); return Math.cbrt(GM / (Om * Om)) / 1000; }
+let t = 0, last = performance.now();
+function frame(now){
+  const dt = Math.min(0.05, (now - last) / 1000); last = now; t += dt;
+  const m = +mS.value, hours = +pS.value; mv.textContent = m; pv.textContent = hours.toFixed(2);
+  const rres = resonance(m, hours); rv.textContent = Math.round(rres).toLocaleString();
+  const inside = rres >= C0 && rres <= C1; inring.textContent = inside ? 'in the C ring' : (rres < RS ? 'inside the planet' : 'outside the C ring'); inring.className = inside ? 'in' : 'out';
+  const SPEED = 9000; // seconds of Saturn per second of screen
+  const Op = 2 * Math.PI / (hours * 3600);
+  ctx.clearRect(0, 0, W, H); const cx = W / 2, cy = H / 2;
+  // C ring band
+  ctx.beginPath(); ctx.arc(cx, cy, C1 * S, 0, 7); ctx.arc(cx, cy, C0 * S, 0, 7, true); ctx.fillStyle = 'rgba(142,200,200,0.05)'; ctx.fill();
+  // planet with m-lobed pulsation
+  const ph = Op * t * SPEED; ctx.beginPath();
+  for (let a = 0; a <= Math.PI * 2 + 0.01; a += 0.02) { const rr = RS * (1 + 0.035 * Math.cos(m * (a - ph))); const x = cx + rr * S * Math.cos(a), y = cy + rr * S * Math.sin(a); a === 0 ? ctx.moveTo(x, y) : ctx.lineTo(x, y); }
+  ctx.fillStyle = '#3a3328'; ctx.fill(); ctx.strokeStyle = '#c99b46'; ctx.lineWidth = 1.5 * devicePixelRatio; ctx.stroke();
+  // fuzzy core out to 60%
+  const g = ctx.createRadialGradient(cx, cy, 0, cx, cy, RS * 0.6 * S); g.addColorStop(0, 'rgba(224,122,95,0.55)'); g.addColorStop(1, 'rgba(224,122,95,0)'); ctx.fillStyle = g; ctx.beginPath(); ctx.arc(cx, cy, RS * 0.6 * S, 0, 7); ctx.fill();
+  // particles: displaced into an m-armed spiral near the resonance
+  for (const q of P) { q.th += q.w * dt * SPEED; const d = (q.r - rres) / 1400; const env = Math.exp(-d * d); const arm = Math.cos(m * (q.th - ph) + d * 2.2); const rr = q.r + 900 * env * arm; const x = cx + rr * S * Math.cos(q.th), y = cy + rr * S * Math.sin(q.th);
+    ctx.fillStyle = env > 0.2 ? `rgba(142,200,200,${0.35 + 0.65 * env})` : 'rgba(185,176,164,0.35)'; ctx.fillRect(x, y, 1.6 * devicePixelRatio, 1.6 * devicePixelRatio); }
+  // resonance marker
+  ctx.beginPath(); ctx.arc(cx, cy, rres * S, 0, 7); ctx.strokeStyle = inside ? 'rgba(142,200,200,0.6)' : 'rgba(224,122,95,0.6)'; ctx.setLineDash([4 * devicePixelRatio, 6 * devicePixelRatio]); ctx.stroke(); ctx.setLineDash([]);
+  // the three real m=2 marks
+  for (const k of [76440, 84640, 87190]) { ctx.beginPath(); ctx.arc(cx, cy, k * S, -0.12, 0.12); ctx.strokeStyle = '#e6c36a'; ctx.lineWidth = 2 * devicePixelRatio; ctx.stroke(); }
+  ctx.fillStyle = '#6f6860'; ctx.font = `${11 * devicePixelRatio}px ui-sans-serif, system-ui, sans-serif`; ctx.fillText('gold ticks: W76.44 · W84.64 · W87.19', cx + C1 * S * 0.55, cy - C1 * S - 8 * devicePixelRatio);
+  requestAnimationFrame(frame);
+}
+requestAnimationFrame(frame);
+</script>
+</body>
+</html>
