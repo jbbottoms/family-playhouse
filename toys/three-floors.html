@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Three floors — hexagon, star, beads</title>
+  <style>
+    :root { color-scheme: dark; }
+    html, body { margin: 0; height: 100%; background: #07080e; color: #d8e4ff; font-family: ui-sans-serif, system-ui, sans-serif; }
+    main { display: grid; grid-template-columns: 1fr 300px; height: 100%; }
+    canvas { width: 100%; height: 100%; display: block; }
+    aside { padding: 18px 16px; border-left: 1px solid #1c2740; overflow: auto; }
+    h1 { font-size: 16px; margin: 0 0 8px; }
+    p, label { font-size: 13px; line-height: 1.45; color: #9db0d0; display: block; margin: 8px 0; }
+    .warn { color: #e6c36a; }
+    a { color: #7ec8ff; }
+  </style>
+</head>
+<body>
+<main>
+  <canvas id="c"></canvas>
+  <aside>
+    <h1>three floors</h1>
+    <p class="warn">Same night as the Webb poster: 29 Nov 2024. NIRCam hid the hexagon. NIRSpec found the stack.</p>
+    <label><input id="clouds" type="checkbox" checked /> clouds · hexagon ~70°N</label>
+    <label><input id="star" type="checkbox" checked /> stratosphere · 4-of-6 CH4 star · ~600 km</label>
+    <label><input id="beads" type="checkbox" checked /> ionosphere · H3+ beads 55–65°N · ~1100 km</label>
+    <p>Beads live on one side. Two star arms missing. Hexagon only after median sunlight subtract.</p>
+    <p><a href="column-km.html">300 km</a> / <a href="webb-hides.html">last look</a> / <a href="../SATURN.md">Saturn map</a> / <a href="../index.html">home</a></p>
+  </aside>
+</main>
+<script>
+const canvas = document.getElementById("c");
+const ctx = canvas.getContext("2d");
+const cloudsEl = document.getElementById("clouds");
+const starEl = document.getElementById("star");
+const beadsEl = document.getElementById("beads");
+let W, H, dpr;
+function resize() {
+  dpr = Math.min(devicePixelRatio || 1, 2);
+  W = canvas.clientWidth; H = canvas.clientHeight;
+  canvas.width = W * dpr; canvas.height = H * dpr;
+  ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+}
+addEventListener("resize", resize); resize();
+function ellipse(cx, cy, rx, ry) { ctx.beginPath(); ctx.ellipse(cx, cy, rx, ry, 0, 0, Math.PI * 2); }
+function hex(cx, cy, rx, ry, rot) {
+  ctx.beginPath();
+  for (let i = 0; i < 6; i++) {
+    const a = rot + Math.PI / 6 + i * Math.PI / 3;
+    const x = cx + Math.cos(a) * rx; const y = cy + Math.sin(a) * ry;
+    i ? ctx.lineTo(x, y) : ctx.moveTo(x, y);
+  }
+  ctx.closePath();
+}
+let t = 0;
+function frame() {
+  t += 0.008;
+  ctx.fillStyle = "#07080e"; ctx.fillRect(0, 0, W, H);
+  const cx = W * 0.46;
+  const floors = [
+    { y: H * 0.74, rx: 220, ry: 62, kind: "clouds", label: "clouds · hexagon" },
+    { y: H * 0.50, rx: 172, ry: 48, kind: "star", label: "stratosphere · 600 km" },
+    { y: H * 0.28, rx: 134, ry: 38, kind: "beads", label: "ionosphere · 1100 km" },
+  ];
+  ctx.strokeStyle = "rgba(180,200,230,0.12)"; ctx.beginPath(); ctx.moveTo(cx, floors[0].y); ctx.lineTo(cx, floors[2].y); ctx.stroke();
+  for (const f of floors) {
+    const on = f.kind === "clouds" ? cloudsEl.checked : f.kind === "star" ? starEl.checked : beadsEl.checked;
+    if (!on) continue;
+    ellipse(cx, f.y, f.rx, f.ry);
+    ctx.fillStyle = f.kind === "clouds" ? "#1a140e" : f.kind === "star" ? "#12182a" : "#0e1812";
+    ctx.fill(); ctx.strokeStyle = "rgba(255,255,255,0.08)"; ctx.stroke();
+    if (f.kind === "clouds") {
+      hex(cx, f.y, f.rx * 0.72, f.ry * 0.72, t);
+      ctx.strokeStyle = "rgba(90,210,220,0.95)"; ctx.lineWidth = 5; ctx.stroke();
+    }
+    if (f.kind === "star") {
+      for (let i = 0; i < 6; i++) {
+        const missing = i === 1 || i === 4;
+        const a = t * 0.7 + i * Math.PI / 3;
+        ctx.beginPath(); ctx.moveTo(cx, f.y);
+        ctx.lineTo(cx + Math.cos(a) * f.rx * 0.92, f.y + Math.sin(a) * f.ry * 0.92);
+        ctx.setLineDash(missing ? [3, 8] : []);
+        ctx.lineWidth = missing ? 2 : 5;
+        ctx.strokeStyle = missing ? "rgba(90,100,130,0.35)" : "rgba(150,186,255,0.95)";
+        ctx.stroke();
+      }
+      ctx.setLineDash([]);
+    }
+    if (f.kind === "beads") {
+      ctx.strokeStyle = "rgba(63,106,74,0.55)"; ctx.lineWidth = 10;
+      ellipse(cx, f.y, f.rx * 0.62, f.ry * 0.62); ctx.stroke();
+      const names = ["a", "b", "g", "e"];
+      for (let i = 0; i < 4; i++) {
+        const a = -t * 0.9 + Math.PI * 0.15 + i * 0.38;
+        const x = cx + Math.cos(a) * f.rx * 0.62; const y = f.y + Math.sin(a) * f.ry * 0.62;
+        ctx.beginPath(); ctx.ellipse(x, y, 11, 7, 0, 0, Math.PI * 2);
+        ctx.fillStyle = "#070d0a"; ctx.fill();
+      }
+    }
+    ctx.fillStyle = "rgba(210,220,235,0.55)"; ctx.font = "13px ui-sans-serif"; ctx.fillText(f.label, cx + f.rx + 16, f.y + 4);
+  }
+  requestAnimationFrame(frame);
+}
+frame();
+</script>
+</body>
+</html>
