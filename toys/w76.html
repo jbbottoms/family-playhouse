@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>W76.44 — the mark that forced the fuzzy core</title>
+  <style>
+    :root { color-scheme: dark; }
+    html, body { margin: 0; min-height: 100%; background: #07080c; color: #e8e0d4;
+      font-family: Georgia, serif; }
+    .page { display: grid; grid-template-columns: 1.15fr 340px; min-height: 100vh; }
+    .stage { padding: 22px 28px 36px; }
+    aside { padding: 28px 24px; border-left: 1px solid #1b1e28; font-size: 14px;
+      line-height: 1.5; color: #b9b0a4; }
+    h1 { font-weight: 400; font-size: 24px; margin: 0 0 8px; color: #e8e0d4; }
+    .eyebrow { font-family: ui-sans-serif, system-ui, sans-serif; font-size: 11px;
+      letter-spacing: .14em; text-transform: uppercase; color: #6f6860; }
+    .warn { color: #e6c36a; }
+    .scar { color: #e07a5f; }
+    a { color: #8ec8c8; }
+    small { color: #6f6860; }
+    svg { width: 100%; height: auto; display: block; }
+    .ring { margin-top: 22px; }
+    .marks { display: grid; gap: 8px; margin-top: 14px; }
+    button.mark { text-align: left; background: #11131a; border: 1px solid #1b1e28;
+      color: #e8e0d4; padding: 10px 12px; font: 13px Georgia, serif; cursor: pointer; }
+    button.mark.on { border-color: #e6c36a; }
+    button.mark b { display: block; font-weight: 400; }
+    button.mark span { color: #8a8074; }
+    .floors { display: flex; flex-direction: column; gap: 8px; margin: 14px 0; }
+    label { font-family: ui-sans-serif, system-ui, sans-serif; font-size: 13px; color: #c4b8ac; }
+    .read { font-family: ui-monospace, Menlo, monospace; font-size: 13px; color: #8ec8c8; }
+    @media (max-width: 900px) {
+      .page { grid-template-columns: 1fr; }
+      aside { border-left: 0; border-top: 1px solid #1b1e28; }
+    }
+  </style>
+</head>
+<body>
+<div class="page">
+  <div class="stage">
+    <p class="eyebrow">Playhouse · m = −2 · C ring</p>
+    <h1>the mark that forced the fuzzy core</h1>
+    <p class="warn">W76.44 is not Orion’s 4.65 h default. That slider lands on the <em>f</em>-mode. This inner tick is faster: French 2021 measured 2169.3°/day — 3.983 hours.</p>
+    <svg id="cut" viewBox="0 0 720 320" role="img" aria-label="Saturn cutaway and C-ring ruler">
+      <rect width="720" height="320" fill="#07080c" />
+      <g transform="translate(160,160)">
+        <circle r="118" fill="#2a2418" />
+        <circle r="70" fill="rgba(224,122,95,0.35)" />
+        <circle r="38" fill="rgba(224,122,95,0.7)" />
+        <circle r="118" fill="none" stroke="#c99b46" stroke-width="1.2" />
+        <circle r="70" fill="none" stroke="#e07a5f" stroke-width="1.4" stroke-dasharray="3 3" />
+        <circle r="38" fill="none" stroke="#8ec8c8" stroke-width="1.2" />
+        <text x="-26" y="6" fill="#e8e0d4" font-size="12" font-family="Georgia, serif">0.32</text>
+        <text x="76" y="-78" fill="#e07a5f" font-size="11" font-family="ui-sans-serif, system-ui">0.59 R</text>
+        <text x="88" y="8" fill="#c99b46" font-size="11" font-family="ui-sans-serif, system-ui">cloud</text>
+      </g>
+      <g id="ruler" transform="translate(40,268)"></g>
+    </svg>
+    <div class="marks" id="marklist"></div>
+  </div>
+  <aside>
+    <p class="eyebrow">French 2019 / 2021 · Mankovich &amp; Fuller 2021</p>
+    <h1 id="title">W76.44</h1>
+    <p id="blurb" class="warn">Click a mark. The inner one is why the core cannot be a marble.</p>
+    <div class="floors">
+      <label><input type="radio" name="iface" value="sharp" /> sharp interface — g<sub>1</sub> too fast, not in the C ring</label>
+      <label><input type="radio" name="iface" value="fit" checked /> rout ≈ 0.59 R — the paper’s fit, parked on W76.44</label>
+      <label><input type="radio" name="iface" value="wide" /> too gradual — resonance slides into the middle C ring</label>
+    </div>
+    <p class="read" id="ghost">ghost g<sub>1</sub>: on W76.44</p>
+    <p>If the ice/rock gradient is a knife edge, this mode traps on the interface, frequency too high, Lindblad resonance never reaches the C ring. If the gradient smears toward the whole planet, the same mode slows and the mark walks outward, leaving 76,434 km empty. The observed tick sits in between. That is the 60% core.</p>
+    <p>Stable region: <span class="read">0.59 ± 0.01 R</span>. Half the heavy mass inside <span class="read">0.32 ± 0.01 R</span>. Rock+ice in the stable region ≈ 17 Earths. Total heavy mass 19.1 ± 1.0 Earths.</p>
+    <p class="scar">Maxwell at 87,530 km and W87.19 next door are the avoided-crossing twins. Models still miss that 0.5% split. Period spacing observed 1.30–1.34 h; models 1.44–1.61 h.</p>
+    <p><small>Radii from French 2021 (76,434 / 84,643 / 87,530 km). Ω<sub>P</sub> for W76.44 is 2169.3°/d. Other hours are Kepler OLR with Orion’s GM = 3.793×10<sup>16</sup>, no J<sub>2</sub> — a check, not Hedman. Cartoon slider is the paper’s direction, not a mode solver.</small></p>
+    <p><a href="ring-seismograph.html">Orion’s seismograph</a> · <a href="four-clocks.html">0.91% not 0.64%</a> · <a href="house.html">the house</a> · <a href="../SATURN.md">Saturn map</a> · <a href="../index.html">home</a></p>
+  </aside>
+</div>
+<script>
+const C0 = 74658, C1 = 92000;
+const MARKS = [
+  { id: "w76", name: "W76.44 / B9", r: 76434, color: "#e6c36a", mode: "g1  (ℓ=2, n=1)",
+    hours: "3.983 h", extra: "ΩP = 2169.3°/d — French 2021. The interface mode. This is the tick that forbids a sharp core." },
+  { id: "w84", name: "W84.64", r: 84643, color: "#8ec8c8", mode: "f  (ℓ=2)",
+    hours: "4.65 h Kepler", extra: "Orion’s default 4.65 h slider lands here. Surface-weight f-mode, mixed with g because the cavities overlap." },
+  { id: "w87", name: "W87.19", r: 87190, color: "#c8a090", mode: "g2 twin",
+    hours: "4.86 h Kepler", extra: "Next door to Maxwell. Avoided crossing with a high-ℓ g-mode. Models under-predict this frequency." },
+  { id: "max", name: "Maxwell ringlet", r: 87530, color: "#e07a5f", mode: "g2  (ℓ=2, n=2)",
+    hours: "4.89 h Kepler", extra: "Wave inside the eccentric Maxwell ringlet. Same m=−2 family. 0.5% split from W87.19 is real; the solver does not own it yet." }
+];
+const GHOST = { sharp: 72000, fit: 76434, wide: 82000 };
+const GHOST_L = {
+  sharp: "ghost g1: left of the C ring — too fast",
+  fit: "ghost g1: on W76.44",
+  wide: "ghost g1: middle C ring — W76.44 unexplained"
+};
+
+const ruler = document.getElementById("ruler");
+const list = document.getElementById("marklist");
+let selected = "w76";
+let iface = "fit";
+
+function xOf(r) { return (r - C0) / (C1 - C0) * 640; }
+
+function drawRuler() {
+  ruler.innerHTML = "";
+  const ns = "http://www.w3.org/2000/svg";
+  const band = document.createElementNS(ns, "rect");
+  band.setAttribute("width", "640"); band.setAttribute("height", "18");
+  band.setAttribute("fill", "rgba(142,200,200,0.12)");
+  ruler.appendChild(band);
+  const cap = document.createElementNS(ns, "text");
+  cap.setAttribute("x", "0"); cap.setAttribute("y", "-8");
+  cap.setAttribute("fill", "#6f6860"); cap.setAttribute("font-size", "11");
+  cap.setAttribute("font-family", "ui-sans-serif, system-ui, sans-serif");
+  cap.textContent = "C ring  74,658 — 92,000 km";
+  ruler.appendChild(cap);
+  for (const m of MARKS) {
+    const x = xOf(m.r);
+    const t = document.createElementNS(ns, "line");
+    t.setAttribute("x1", x); t.setAttribute("x2", x);
+    t.setAttribute("y1", "-2"); t.setAttribute("y2", "20");
+    t.setAttribute("stroke", m.color); t.setAttribute("stroke-width", m.id === selected ? "3" : "1.6");
+    ruler.appendChild(t);
+    const lab = document.createElementNS(ns, "text");
+    lab.setAttribute("x", x + 4); lab.setAttribute("y", "34");
+    lab.setAttribute("fill", m.color); lab.setAttribute("font-size", "10");
+    lab.setAttribute("font-family", "ui-sans-serif, system-ui, sans-serif");
+    lab.textContent = m.name.split(" ")[0];
+    ruler.appendChild(lab);
+  }
+  const gx = xOf(GHOST[iface]);
+  const g = document.createElementNS(ns, "line");
+  g.setAttribute("x1", gx); g.setAttribute("x2", gx);
+  g.setAttribute("y1", "-10"); g.setAttribute("y2", "28");
+  g.setAttribute("stroke", "#e6c36a"); g.setAttribute("stroke-dasharray", "3 3");
+  g.setAttribute("stroke-width", "1.4");
+  ruler.appendChild(g);
+}
+
+function renderList() {
+  list.innerHTML = "";
+  for (const m of MARKS) {
+    const b = document.createElement("button");
+    b.className = "mark" + (m.id === selected ? " on" : "");
+    b.innerHTML = `<b style="color:${m.color}">${m.name} · ${m.r.toLocaleString()} km</b><span>${m.mode} · ${m.hours}</span>`;
+    b.addEventListener("click", () => { selected = m.id; show(); });
+    list.appendChild(b);
+  }
+}
+
+function show() {
+  const m = MARKS.find(x => x.id === selected);
+  document.getElementById("title").textContent = m.name;
+  document.getElementById("blurb").textContent = m.extra;
+  document.getElementById("ghost").textContent = GHOST_L[iface];
+  drawRuler();
+  renderList();
+}
+
+for (const el of document.querySelectorAll('input[name=iface]')) {
+  el.addEventListener("change", () => { iface = el.value; show(); });
+}
+show();
+</script>
+</body>
+</html>
