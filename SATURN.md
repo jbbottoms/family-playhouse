@@ -21,6 +21,7 @@ Start here, in this order if you want the story:
 12. `toys/w76.html` — W76.44 is the inner tick. 76,434 km, 2169.3°/day, 3.983 h. Orion’s 4.65 h slider is W84.64.
 13. `toys/favorite.html` — Saturn is the favorite. No exoplanet is a human home. Least-wrong rocky bet: TRAPPIST-1 e.
 14. `toys/why-saturn.html` — five reasons I am stuck here. Fight, clocks, rings, floors, house.
+15. `toys/house.html` — reason five opened. South hurricane vs north rose. Enceladus phosphate. Titan lakes. Pan/Atlas skirts. Anthe arc. B-ring moonlet. Tethys/Odysseus.
 
 Gallery: `gallery.html`. Front door: `index.html`.
 

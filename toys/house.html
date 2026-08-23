@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>The house is full</title>
+  <style>
+    :root { color-scheme: dark; }
+    html, body { margin: 0; background: #07080c; color: #e8e0d4; font-family: Georgia, serif; }
+    header { padding: 28px 36px 8px; }
+    h1 { font-weight: 400; font-size: 30px; margin: 0 0 8px; }
+    .lede { max-width: 46rem; line-height: 1.55; color: #b9b0a4; }
+    .warn { color: #e6c36a; }
+    .scar { color: #e07a5f; }
+    a { color: #8ec8c8; }
+    .compare { padding: 8px 36px 4px; max-width: 920px; }
+    svg { width: 100%; height: auto; display: block; }
+    .wall { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; padding: 12px 36px 56px; }
+    figure { margin: 0; background: #11131a; display: flex; flex-direction: column; }
+    figure.wide { grid-column: 1 / -1; }
+    img { width: 100%; height: 280px; object-fit: cover; display: block; background: #0a0b10; }
+    .wide img { height: 400px; }
+    figcaption { padding: 12px 14px 16px; font-size: 15px; line-height: 1.5; color: #b9b0a4; }
+    figcaption strong { display: block; color: #e8e0d4; font-weight: 400; font-size: 18px; margin-bottom: 6px; }
+    .id { font-family: ui-sans-serif, system-ui, sans-serif; font-size: 11px;
+      letter-spacing: .12em; text-transform: uppercase; color: #6f6860; }
+    @media (max-width: 800px) { .wall { grid-template-columns: 1fr; } }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>the house is full</h1>
+    <p class="lede warn">Dad said captions help him learn. This is reason five, opened up. Not a brochure. Every still is a Cassini public-domain frame with the Photojournal caption underneath.</p>
+    <p class="lede">You do not just get a planet. You get two different poles, an ocean moon that sprays phosphate, a nitrogen world with lakes, saucer moons wearing ring dust, and a 300-meter body hiding in the B ring. <a href="why-saturn.html">Five reasons</a> · <a href="../SATURN.md">map</a> · <a href="../index.html">home</a></p>
+  </header>
+  <div class="compare">
+    <svg viewBox="0 0 920 220" role="img" aria-label="South circular hurricane versus north rose and hexagon">
+      <rect width="920" height="220" fill="#07080c" />
+      <text x="20" y="28" fill="#6f6860" font-size="12" font-family="ui-sans-serif, system-ui">same planet · two weather machines</text>
+      <g transform="translate(180,128)">
+        <circle r="78" fill="none" stroke="#8ec8c8" stroke-width="2" />
+        <circle r="22" fill="#11131a" stroke="#e6c36a" stroke-width="2" />
+        <text x="-70" y="108" fill="#b9b0a4" font-size="14" font-family="Georgia, serif">south · round · ~8,000 km</text>
+      </g>
+      <g transform="translate(520,128)">
+        <polygon points="0,-80 69,-40 69,40 0,80 -69,40 -69,-40" fill="none" stroke="#c99b46" stroke-width="2" />
+        <circle r="28" fill="#3a1410" stroke="#e07a5f" stroke-width="2" />
+        <text x="-92" y="108" fill="#b9b0a4" font-size="14" font-family="Georgia, serif">north · hexagon + rose · eye 2,000 km</text>
+      </g>
+      <text x="680" y="88" fill="#e6c36a" font-size="16" font-family="Georgia, serif">south storm is</text>
+      <text x="680" y="114" fill="#e6c36a" font-size="22" font-family="Georgia, serif">4× wider</text>
+      <text x="680" y="140" fill="#8a8074" font-size="13" font-family="Georgia, serif">than the north eye</text>
+    </svg>
+  </div>
+  <div class="wall">
+    <figure class="wide">
+      <img src="https://images-assets.nasa.gov/image/PIA08332/PIA08332~orig.jpg" alt="Cassini stares into Saturn south polar hurricane" />
+      <figcaption>
+        <span class="id">PIA08332 · Looking Saturn in the Eye · 11 Oct 2006</span>
+        <strong>South does not bother with a hexagon.</strong>
+        Cassini looks straight down a locked hurricane. NASA: about 8,000 km across, winds near 550 km/h, an eye-wall that towers 30 to 75 km over the dark center — two to five times the height of Earth's tallest thunderstorms. It does not drift. It sits on the pole. Jupiter's Great Red Spot, much larger, has no eye and no eye-wall.
+      </figcaption>
+    </figure>
+    <figure>
+      <img src="https://images-assets.nasa.gov/image/PIA11104/PIA11104~orig.jpg" alt="Close-up convection inside Saturn south polar vortex" />
+      <figcaption>
+        <span class="id">PIA11104 · Convection in Saturn’s Southern Vortex · 14 Jul 2008</span>
+        <strong>What looked like puffs are storms.</strong>
+        Ten times sharper than earlier south-pole frames. 2 km per pixel. The "puffy clouds" in the eye are deep convective towers. One punched higher and spun its own little vortex. Filters at 617 and 750 nm, where methane is fairly transparent, so you see the deep floor, not just the haze.
+      </figcaption>
+    </figure>
+    <figure>
+      <img src="https://images-assets.nasa.gov/image/PIA14944/PIA14944~orig.jpg" alt="False-color north polar rose on Saturn" />
+      <figcaption>
+        <span class="id">PIA14944 · The Rose · 27 Nov 2012</span>
+        <strong>North grew a rose inside the fight.</strong>
+        False color: red is low cloud, green is high. The eye is 2,000 km across. Clouds run 150 m/s. First sunlit Cassini look — when the spacecraft arrived in 2004 the north pole was in winter dark. Voyager 2 in 1981 never got this geometry. How long the rose has been open: unknown.
+      </figcaption>
+    </figure>
+    <figure class="wide">
+      <img src="https://images-assets.nasa.gov/image/PIA11688/PIA11688~orig.jpg" alt="Enceladus south polar geysers spraying into space" />
+      <figcaption>
+        <span class="id">PIA11688 · Bursting at the Seams · geyser basin</span>
+        <strong>The basement sprays the ocean into space.</strong>
+        101 geysers. 100 sit on four tiger-stripe fractures named Alexandria, Cairo, Baghdad, Damascus — each about 135 km long. Cassini imaging (Porco, DiNino, Nimmo 2014) plus the other instruments say the jets come from the sea under the ice. Postberg et al. 2023, <em>Nature</em> 618: phosphorus in those plume grains is at least 100 times Earth's ocean water. Not a slogan. A measured floor.
+      </figcaption>
+    </figure>
+    <figure>
+      <img src="https://images-assets.nasa.gov/image/PIA06247/PIA06247~orig.jpg" alt="Enceladus tiger-stripe fractures near the terminator" />
+      <figcaption>
+        <span class="id">PIA06247 · Tiger Stripes Up Close · 14 Jul 2005</span>
+        <strong>The cracks that feed the spray.</strong>
+        122 meters per pixel. 20,720 km away. Parallel ridged faults in the south polar ice. Informal name from the false-color cousins: tiger stripes. No air to blur the terminator. This is the plumbing.
+      </figcaption>
+    </figure>
+    <figure>
+      <img src="https://images-assets.nasa.gov/image/PIA20516/PIA20516~orig.jpg" alt="Titan with north polar lakes and returning clouds" />
+      <figcaption>
+        <span class="id">PIA20516 · Send in the Clouds · 29 Oct 2016</span>
+        <strong>The weather room next door.</strong>
+        Titan is 5,150 km across. About 1.5 bar of nitrogen. Dark north polar lakes of methane and ethane. Clouds vanished from the north for years (about 2010–2014), then came back thinner than the seasonal models wanted. 938 nm, 5 km per pixel. Clearer skies than expected is a finding, not a miss.
+      </figcaption>
+    </figure>
+    <figure class="wide">
+      <img src="https://images-assets.nasa.gov/image/PIA08405/PIA08405~orig.jpg" alt="Four Cassini views of Pan and Atlas saucer moons" />
+      <figcaption>
+        <span class="id">PIA08405 · Saturn’s Saucer Moons · Atlas and Pan</span>
+        <strong>The closet wears ring-dust skirts.</strong>
+        Highest-resolution Cassini pair. Equatorial ridges not seen on the other moons. Atlas's ridge stands about 3 to 5 km high. Pan's reaches about 4 km. They grow the skirts from the rings they shepherd. Two tiny bodies, dressed by the house.
+      </figcaption>
+    </figure>
+    <figure>
+      <img src="https://images-assets.nasa.gov/image/PIA11100/PIA11100~orig.jpg" alt="Faint ring arc sharing Anthe's orbit" />
+      <figcaption>
+        <span class="id">PIA11100 · Anthe’s Faint Arc · 4 Apr 2008</span>
+        <strong>A 2 km moon with its own hallway.</strong>
+        Anthe is about 2 km across. The bright V is debris sharing its orbit — about 20 degrees of longitude, held by a Mimas resonance. 32-second exposure. Stars smear. Micrometeoroid hits on the moon are the likely dust source. Pallene gets a full faint ring. Methone gets an arc too. Even the crumbs have rooms.
+      </figcaption>
+    </figure>
+    <figure>
+      <img src="https://images-assets.nasa.gov/image/PIA11665/PIA11665~orig.jpg" alt="Small B-ring moonlet casting a long equinox shadow" />
+      <figcaption>
+        <span class="id">PIA11665 · A Small Find Near Equinox · 26 Jul 2009</span>
+        <strong>A 300-meter body hiding in the floorboards.</strong>
+        About 650 km in from the B-ring outer edge. The shadow is 36 km long, so the moonlet sticks about 150 m above the ring plane — roughly 300 m top to bottom if it sits in the plane. No long propeller. The B ring is dense and fills gaps fast. Equinox sunlight (every ~15 Earth years) is the only reason the shadow exists.
+      </figcaption>
+    </figure>
+    <figure class="wide">
+      <img src="https://images-assets.nasa.gov/image/PIA18317/PIA18317~orig.jpg" alt="Tethys with the giant crater Odysseus" />
+      <figcaption>
+        <span class="id">PIA18317 · Tethys the Target · 11 Apr 2015</span>
+        <strong>A roommate almost broken in half.</strong>
+        Tethys is 1,062 km across. Odysseus — the big bowl on the right — is 450 km, about 4.5% of the moon's surface. NASA's comparison: a crater that size on Earth would be as large as Russia. 1 km per pixel. Not Mimas. Not Herschel. This is Tethys. The house keeps almost-broken worlds too.
+      </figcaption>
+    </figure>
+  </div>
+  <header>
+    <p class="lede scar">Scar: a first grab of PIA17231 / PIA17944 / PIA19643 / PIA22063 was Mercury, Mars, Jupiter, and a Curiosity drill. Photojournal target lines, not filenames. Those stills are gone. PIA21429 (TRAPPIST-1 transit cartoon) stays on the shelf for the exoplanet card, not this house.</p>
+  </header>
+</body>
+</html>
