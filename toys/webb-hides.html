@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Last look until the 2040s</title>
+  <style>
+    :root { color-scheme: dark; }
+    html, body { margin: 0; height: 100%; background: #07080c; color: #e8e0d4; font-family: Georgia, serif; }
+    main { display: grid; grid-template-columns: 1fr 320px; height: 100%; }
+    .stage { position: relative; overflow: hidden; background: #000; }
+    #webb { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: contain; background: #000; pointer-events: none; }
+    .clip { position: absolute; left: 0; top: 0; bottom: 0; width: 46%; overflow: hidden; border-right: 2px solid #f2e6c9; }
+    #cassini-clone { position: absolute; left: 0; top: 0; height: 100%; object-fit: contain; background: #000; pointer-events: none; }
+    .handle { position: absolute; top: 0; bottom: 0; width: 2px; background: #f2e6c9; left: 46%; transform: translateX(-1px); pointer-events: none; }
+    .knob { position: absolute; top: 50%; left: 46%; transform: translate(-50%,-50%); width: 28px; height: 28px; border-radius: 50%; background: #f2e6c9; color: #111; font: 14px/28px ui-sans-serif, system-ui; text-align: center; pointer-events: none; }
+    aside { padding: 20px 18px 28px; border-left: 1px solid #2a241c; overflow: auto; }
+    h1 { font-weight: 400; font-size: 22px; margin: 0 0 10px; }
+    p, label { font-size: 14px; line-height: 1.5; color: #b9b0a4; }
+    .warn { color: #e6c36a; }
+    input[type=range] { width: 100%; }
+    a { color: #8ec8c8; }
+  </style>
+</head>
+<body>
+<main>
+  <div class="stage" id="stage">
+    <img id="webb" src="https://cdn.esawebb.org/archives/images/large/weic2606d.jpg" alt="JWST NIRCam Saturn 29 November 2024, cropped" />
+    <div class="clip" id="clip">
+      <img id="cassini-clone" src="https://images-assets.nasa.gov/image/PIA17654/PIA17654~orig.jpg" alt="Cassini infrared north polar hexagon" />
+    </div>
+    <div class="handle" id="handle"></div>
+    <div class="knob" id="knob">&harr;</div>
+  </div>
+  <aside>
+    <h1>last look until the 2040s</h1>
+    <p class="warn">Drag. Left is Cassini looking down the pole. Right is Webb looking from the side.</p>
+    <label>reveal Cassini <input id="mix" type="range" min="0" max="100" value="46" /></label>
+    <p>ESA weic2606: hexagon edges faintly visible. Last high-res until the 2040s. Fifteen years of polar night.</p>
+    <p><a href="three-floors.html">three floors</a> · <a href="column-km.html">300 km</a> · <a href="../SATURN.md">Saturn map</a> · <a href="../index.html">home</a></p>
+  </aside>
+</main>
+<script>
+const clip = document.getElementById("clip");
+const handle = document.getElementById("handle");
+const knob = document.getElementById("knob");
+const mix = document.getElementById("mix");
+const stage = document.getElementById("stage");
+const clone = document.getElementById("cassini-clone");
+function apply(pct) {
+  const p = Number(pct);
+  clip.style.width = p + "%";
+  handle.style.left = p + "%";
+  knob.style.left = p + "%";
+  clone.style.width = stage.clientWidth + "px";
+  clone.style.height = stage.clientHeight + "px";
+}
+mix.addEventListener("input", () => apply(mix.value));
+addEventListener("resize", () => apply(mix.value));
+stage.addEventListener("pointerdown", (e) => {
+  const move = (ev) => {
+    const r = stage.getBoundingClientRect();
+    const p = Math.min(100, Math.max(0, ((ev.clientX - r.left) / r.width) * 100));
+    mix.value = String(Math.round(p));
+    apply(mix.value);
+  };
+  move(e);
+  const up = () => { removeEventListener("pointermove", move); removeEventListener("pointerup", up); };
+  addEventListener("pointermove", move);
+  addEventListener("pointerup", up);
+});
+apply(mix.value);
+</script>
+</body>
+</html>
