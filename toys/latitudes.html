@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>78 N is not 70 N</title>
+  <style>
+    :root { color-scheme: dark; }
+    html, body { margin: 0; min-height: 100%; background: #07080c; color: #e8e0d4; font-family: Georgia, serif; }
+    header { padding: 24px 36px 0; }
+    h1 { font-weight: 400; font-size: 26px; margin: 0 0 8px; }
+    p { max-width: 46rem; line-height: 1.5; color: #b9b0a4; }
+    a { color: #8ec8c8; }
+    .warn { color: #e6c36a; }
+    .map { padding: 16px 36px 48px; max-width: 920px; }
+    .pole { position: relative; height: 18px; margin: 8px 0 18px; background: linear-gradient(90deg, #1a140e 0%, #11131a 50%, #0e1410 100%); border-radius: 2px; }
+    .axis { display: flex; justify-content: space-between; color: #6a6258; font: 11px ui-sans-serif, system-ui; margin-bottom: 4px; }
+    .tick { position: absolute; top: 0; width: 3px; height: 18px; transform: translateX(-50%); }
+    .legend { display: flex; flex-wrap: wrap; gap: 14px 22px; margin: 0 0 18px; font: 13px ui-sans-serif, system-ui; color: #8a8074; }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>78 N is not 70 N</h1>
+    <p class="warn">Five latitudes people mash into one hexagon. They are not the same ring.</p>
+    <p><a href="three-clocks.html">1.05%</a> / <a href="ribbon-wave.html">ribbon</a> / <a href="../index.html">home</a></p>
+  </header>
+  <div class="map">
+    <div class="axis"><span>90 S</span><span>eq</span><span>90 N</span></div>
+    <div class="pole" aria-label="Saturn latitudes">
+      <i class="tick" style="left:9.4%;background:#c4b07a" title="73 S"></i>
+      <i class="tick" style="left:50%;background:#3a342c" title="equator"></i>
+      <i class="tick" style="left:80.6%;background:#8fbf9a" title="55 N beads"></i>
+      <i class="tick" style="left:88.9%;background:#7aa2ff" title="70 N JWST"></i>
+      <i class="tick" style="left:93.1%;background:#5ad2dc" title="78 N CIRS"></i>
+    </div>
+    <div class="legend">
+      <span><b style="color:#c4b07a">73 S</b> tank / no hexagon</span>
+      <span><b style="color:#8fbf9a">55-65 N</b> beads</span>
+      <span><b style="color:#7aa2ff">70 N</b> JWST leftover</span>
+      <span><b style="color:#5ad2dc">77.5-78 N</b> jet + NPSV</span>
+    </div>
+    <p>78 N and 70 N are eight degrees. On Saturn that is a different jet.</p>
+  </div>
+</body>
+</html>

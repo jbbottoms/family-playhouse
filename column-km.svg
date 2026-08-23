@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 420 640" role="img" aria-label="Saturn polar column from clouds to H3+ beads">
+  <rect width="420" height="640" fill="#07080c"/>
+  <text x="28" y="36" fill="#e8e0d4" font-family="Georgia, serif" font-size="22">300 km is not the top</text>
+  <line x1="90" y1="70" x2="90" y2="600" stroke="#3a342c"/>
+  <rect x="87" y="450" width="6" height="150" fill="#5ad2dc"/>
+  <rect x="87" y="300" width="6" height="150" fill="#7aa2ff"/>
+  <rect x="87" y="80" width="6" height="220" fill="#6aa87a"/>
+  <text x="28" y="608" fill="#6a6258" font-family="ui-sans-serif, system-ui" font-size="12">0 km</text>
+  <text x="28" y="458" fill="#6a6258" font-family="ui-sans-serif, system-ui" font-size="12">300</text>
+  <text x="28" y="308" fill="#6a6258" font-family="ui-sans-serif, system-ui" font-size="12">600</text>
+  <text x="28" y="88" fill="#6a6258" font-family="ui-sans-serif, system-ui" font-size="12">1100</text>
+  <text x="110" y="604" fill="#5ad2dc" font-family="Georgia, serif" font-size="16">clouds 78 N</text>
+  <text x="110" y="454" fill="#8ec8c8" font-family="Georgia, serif" font-size="16">NPSV hexagon</text>
+  <text x="110" y="304" fill="#7aa2ff" font-family="Georgia, serif" font-size="16">CH4 star</text>
+  <text x="110" y="84" fill="#8fbf9a" font-family="Georgia, serif" font-size="16">H3+ beads</text>
+</svg>

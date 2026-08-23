@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Three clocks</title>
+  <style>
+    :root { color-scheme: dark; }
+    html, body { margin: 0; min-height: 100%; background: #07080c; color: #e8e0d4; font-family: Georgia, serif; }
+    header { padding: 24px 36px 0; }
+    h1 { font-weight: 400; font-size: 26px; margin: 0 0 8px; }
+    p { max-width: 46rem; line-height: 1.5; color: #b9b0a4; }
+    a { color: #8ec8c8; }
+    .warn { color: #e6c36a; }
+    .chart { padding: 20px 36px 48px; max-width: 920px; }
+    .row { margin: 22px 0; }
+    .lab { display: flex; justify-content: space-between; gap: 12px; margin-bottom: 6px; }
+    .lab b { font-weight: 400; }
+    .lab span { color: #8a8074; font-size: 14px; }
+    .bar { height: 18px; background: #1a1814; }
+    .bar i { display: block; height: 100%; }
+    .axis { display: flex; justify-content: space-between; color: #6a6258; font: 11px ui-sans-serif, system-ui; margin-bottom: 8px; }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>1.05% vs 2.32%</h1>
+    <p class="warn">Hexagon jet is barely slower than the interior. Radio north at Cassini end was twice that slack. Then they lost the phase for seven years.</p>
+    <p><a href="latitudes.html">78 N</a> / <a href="ribbon-wave.html">ribbon</a> / <a href="../index.html">home</a></p>
+  </header>
+  <div class="chart">
+    <div class="axis"><span>0%</span><span>1.2%</span><span>2.4%</span></div>
+    <div class="row">
+      <div class="lab"><b style="color:#8ec8c8">interior</b><span>10h 32m 45s - gravity - the floor</span></div>
+      <div class="bar"><i style="width:0.5%;background:#8ec8c8"></i></div>
+    </div>
+    <div class="row">
+      <div class="lab"><b style="color:#5ad2dc">hexagon jet</b><span>10h 39m 23s - +6m 38s - 1.05% slower</span></div>
+      <div class="bar"><i style="width:43.8%;background:#5ad2dc"></i></div>
+    </div>
+    <div class="row">
+      <div class="lab"><b style="color:#e6c36a">radio north</b><span>10.79 h - 2.32% slower - then phase lost</span></div>
+      <div class="bar"><i style="width:96.7%;background:#e6c36a"></i></div>
+    </div>
+  </div>
+</body>
+</html>
