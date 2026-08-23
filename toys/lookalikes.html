@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Lookalikes — Herschel is not Odysseus</title>
+  <style>
+    :root { color-scheme: dark; }
+    html, body { margin: 0; background: #07080c; color: #e8e0d4; font-family: Georgia, serif; }
+    header { padding: 28px 36px 8px; }
+    h1 { font-weight: 400; font-size: 30px; margin: 0 0 8px; }
+    .lede { max-width: 46rem; line-height: 1.55; color: #b9b0a4; }
+    .warn { color: #e6c36a; }
+    a { color: #8ec8c8; }
+    .compare { padding: 4px 36px 8px; max-width: 960px; }
+    svg { width: 100%; height: auto; display: block; }
+    .wall { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; padding: 8px 36px 56px; }
+    figure { margin: 0; background: #11131a; display: flex; flex-direction: column; }
+    figure.wide { grid-column: 1 / -1; }
+    img { width: 100%; height: 300px; object-fit: cover; display: block; background: #0a0b10; }
+    .wide img { height: 420px; }
+    figcaption { padding: 12px 14px 16px; font-size: 15px; line-height: 1.5; color: #b9b0a4; }
+    figcaption strong { display: block; color: #e8e0d4; font-weight: 400; font-size: 18px; margin-bottom: 6px; }
+    .id { font-family: ui-sans-serif, system-ui, sans-serif; font-size: 11px;
+      letter-spacing: .12em; text-transform: uppercase; color: #6f6860; }
+    @media (max-width: 800px) { .wall { grid-template-columns: 1fr; } }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>lookalikes</h1>
+    <p class="lede warn">Dad said captions help him learn. Two craters wear the same costume. One moon wears two faces. Photojournal under every still.</p>
+    <p class="lede">I almost called Tethys “Mimas” last room. They are not the same punch. <a href="house.html">the house</a> · <a href="../SATURN.md">map</a> · <a href="../index.html">home</a></p>
+  </header>
+  <div class="compare">
+    <svg viewBox="0 0 960 250" role="img" aria-label="Three moons scaled, with their giant craters marked">
+      <rect width="960" height="250" fill="#07080c" />
+      <text x="20" y="26" fill="#6f6860" font-size="12" font-family="ui-sans-serif, system-ui">moons to scale · crater width as a slice of the ball</text>
+      <g transform="translate(150,145)">
+        <circle r="38" fill="#1b1e28" stroke="#8ec8c8" stroke-width="2" />
+        <circle cx="10" cy="-4" r="12.5" fill="none" stroke="#e6c36a" stroke-width="2" />
+        <text x="-48" y="68" fill="#b9b0a4" font-size="13" font-family="Georgia, serif">Mimas 396 km</text>
+        <text x="-48" y="86" fill="#e6c36a" font-size="12" font-family="Georgia, serif">Herschel 130 km · 33%</text>
+      </g>
+      <g transform="translate(430,145)">
+        <circle r="101" fill="#1b1e28" stroke="#c99b46" stroke-width="2" />
+        <circle cx="28" cy="8" r="43" fill="none" stroke="#e6c36a" stroke-width="2" />
+        <text x="-70" y="124" fill="#b9b0a4" font-size="13" font-family="Georgia, serif">Tethys 1,062 km</text>
+        <text x="-70" y="142" fill="#e6c36a" font-size="12" font-family="Georgia, serif">Odysseus 450 km · 42%</text>
+      </g>
+      <g transform="translate(760,145)">
+        <circle r="140" fill="#1b1e28" stroke="#e07a5f" stroke-width="2" />
+        <circle cx="-30" cy="-10" r="55" fill="none" stroke="#e6c36a" stroke-width="2" />
+        <text x="-80" y="124" fill="#b9b0a4" font-size="13" font-family="Georgia, serif">Iapetus 1,471 km</text>
+        <text x="-80" y="142" fill="#e6c36a" font-size="12" font-family="Georgia, serif">Turgis 580 km · 39%</text>
+      </g>
+    </svg>
+  </div>
+  <div class="wall">
+    <figure>
+      <img src="https://images-assets.nasa.gov/image/PIA12568/PIA12568~orig.jpg" alt="Cassini mosaic looking into Mimas Herschel Crater" />
+      <figcaption>
+        <span class="id">PIA12568 · Examining Herschel Crater · 13 Feb 2010</span>
+        <strong>This is the Death Star one. Mimas.</strong>
+        Herschel is 130 km wide on a moon only 396 km across — 33% of the ball. Cassini came within 9,500 km. Walls about 20% brighter than the floors. Scientists read the dark streaks as impurities sliding down while ice evaporates. Melt from the impact puddled around the central peak. 180 m per pixel.
+      </figcaption>
+    </figure>
+    <figure>
+      <img src="https://images-assets.nasa.gov/image/PIA18317/PIA18317~orig.jpg" alt="Tethys with the giant crater Odysseus" />
+      <figcaption>
+        <span class="id">PIA18317 · Tethys the Target · 11 Apr 2015</span>
+        <strong>This is the bigger punch. Tethys.</strong>
+        Odysseus is 450 km wide on a 1,062 km moon — 42% of the ball, about 4.5% of the surface. NASA: a crater that size on Earth would be as large as Russia. Odysseus is 3.5× wider than Herschel in kilometers. Tethys itself is 2.7× wider than Mimas. Same costume. Different house.
+      </figcaption>
+    </figure>
+    <figure class="wide">
+      <img src="https://images-assets.nasa.gov/image/PIA11690/PIA11690~orig.jpg" alt="Iapetus leading dark hemisphere next to bright trailing hemisphere" />
+      <figcaption>
+        <span class="id">PIA11690 · Global View of Iapetus’ Dichotomy</span>
+        <strong>One moon, two albedos.</strong>
+        Left: leading side, almost as dark as charcoal, about 40% of the surface (Cassini Regio). Right: trailing side, almost as bright as snow (Roncevaux Terra north, Saragossa Terra south). Dark reflectivity about 4%. Bright ice over 60%. That is 15× more light coming back. Turgis, the big basin on the dark edge, is 580 km — 39% as wide as Iapetus. Slow day: 1,904 hours.
+      </figcaption>
+    </figure>
+    <figure class="wide">
+      <img src="https://images-assets.nasa.gov/image/PIA06166/PIA06166~orig.jpg" alt="Cassini New Year Eve 2004 global view of dark Iapetus" />
+      <figcaption>
+        <span class="id">PIA06166 · Encountering Iapetus · 31 Dec 2004</span>
+        <strong>The equator grew a mountain belt no one has explained.</strong>
+        New Year’s Eve flyby. Dark deposits near 4% reflectivity coat the leading face. Past about 40° latitude the ice jumps over 60%. A 20 km-wide ridge runs almost exactly on the equator for 1,300 km in this frame; on the left limb it stands at least 13 km high. Folded mountains, or a crack that erupted? NASA said not yet clear. The dark stuff: erupted from inside, or painted by dust from outer moons? This mosaic does not pick a winner.
+      </figcaption>
+    </figure>
+  </div>
+</body>
+</html>

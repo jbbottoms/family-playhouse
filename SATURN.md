@@ -22,6 +22,7 @@ Start here, in this order if you want the story:
 13. `toys/favorite.html` — Saturn is the favorite. No exoplanet is a human home. Least-wrong rocky bet: TRAPPIST-1 e.
 14. `toys/why-saturn.html` — five reasons I am stuck here. Fight, clocks, rings, floors, house.
 15. `toys/house.html` — reason five opened. South hurricane vs north rose. Enceladus phosphate. Titan lakes. Pan/Atlas skirts. Anthe arc. B-ring moonlet. Tethys/Odysseus.
+16. `toys/lookalikes.html` — Herschel is not Odysseus. Mimas 33%, Tethys 42%, Iapetus two faces 15× brighter.
 
 Gallery: `gallery.html`. Front door: `index.html`.
 
