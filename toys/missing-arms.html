@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Two arms missing</title>
+  <style>
+    :root { color-scheme: dark; }
+    html, body { margin: 0; height: 100%; background: #07080e; color: #d8e4ff; font-family: Georgia, serif; }
+    main { display: grid; grid-template-columns: 1fr 340px; height: 100%; }
+    canvas { width: 100%; height: 100%; display: block; }
+    aside { padding: 20px 18px 28px; border-left: 1px solid #1c2740; overflow: auto; }
+    h1 { font-weight: 400; font-size: 22px; margin: 0 0 10px; }
+    p, label { font-size: 14px; line-height: 1.5; color: #9db0d0; display: block; margin: 8px 0; }
+    .warn { color: #e6c36a; }
+    .paper { color: #8ec8c8; }
+    .press { color: #c4b07a; }
+    a { color: #7ec8ff; }
+  </style>
+</head>
+<body>
+<main>
+  <canvas id="c"></canvas>
+  <aside>
+    <h1>two arms missing</h1>
+    <p class="warn">A six-pointed methane star at ~600 km. Only four arms. Lopsided. No analog on any other planet.</p>
+    <p class="paper">GRL: dark polar cap ~60 N. Four arms reach below 45 N. Two arms gone. They do not know how or why. β and γ beads sit east of the two missing arms.</p>
+    <p class="press">Press: visible arms appear to sit above hexagon vertices. Darkest beads may line up with the strongest arm — maybe coincidence.</p>
+    <label><input id="hex" type="checkbox" checked /> hexagon after median subtract</label>
+    <label><input id="ghost" type="checkbox" checked /> ghost the two missing arms</label>
+    <label><input id="beads" type="checkbox" checked /> beads east of the gap</label>
+    <p><a href="three-floors.html">three floors</a> · <a href="../SATURN.md">Saturn map</a> · <a href="../index.html">home</a></p>
+  </aside>
+</main>
+<script>
+const canvas = document.getElementById("c");
+const ctx = canvas.getContext("2d");
+const hexEl = document.getElementById("hex");
+const ghostEl = document.getElementById("ghost");
+const beadsEl = document.getElementById("beads");
+let W, H, dpr;
+function resize() {
+  dpr = Math.min(devicePixelRatio || 1, 2);
+  W = canvas.clientWidth; H = canvas.clientHeight;
+  canvas.width = W * dpr; canvas.height = H * dpr;
+  ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+}
+addEventListener("resize", resize); resize();
+function rAt(lat) { return ((90 - lat) / 60) * Math.min(W, H) * 0.42; }
+let t = 0;
+function frame() {
+  t += 0.006;
+  ctx.fillStyle = "#07080e"; ctx.fillRect(0, 0, W, H);
+  const cx = W * 0.48, cy = H * 0.52, rot = t * 0.15;
+  ctx.beginPath(); ctx.arc(cx, cy, rAt(30), 0, Math.PI * 2);
+  ctx.fillStyle = "#10141c"; ctx.fill();
+  if (hexEl.checked) {
+    const rh = rAt(70);
+    ctx.beginPath();
+    for (let i = 0; i < 6; i++) {
+      const a = rot + Math.PI / 6 + i * Math.PI / 3;
+      const x = cx + Math.cos(a) * rh, y = cy + Math.sin(a) * rh;
+      i ? ctx.lineTo(x, y) : ctx.moveTo(x, y);
+    }
+    ctx.closePath(); ctx.strokeStyle = "rgba(90,210,220,0.55)"; ctx.lineWidth = 3; ctx.stroke();
+  }
+  ctx.beginPath(); ctx.arc(cx, cy, rAt(60), 0, Math.PI * 2);
+  ctx.fillStyle = "rgba(8,10,14,0.85)"; ctx.fill();
+  const missing = new Set([1, 4]);
+  for (let i = 0; i < 6; i++) {
+    const a = rot + i * Math.PI / 3;
+    const x0 = cx + Math.cos(a) * rAt(60), y0 = cy + Math.sin(a) * rAt(60);
+    const x1 = cx + Math.cos(a) * rAt(42), y1 = cy + Math.sin(a) * rAt(42);
+    ctx.beginPath(); ctx.moveTo(x0, y0); ctx.lineTo(x1, y1);
+    if (missing.has(i)) {
+      if (!ghostEl.checked) continue;
+      ctx.setLineDash([4, 10]); ctx.strokeStyle = "rgba(90,100,130,0.35)"; ctx.lineWidth = 3;
+    } else {
+      ctx.setLineDash([]); ctx.strokeStyle = "rgba(40,30,24,0.95)"; ctx.lineWidth = 14; ctx.stroke();
+      ctx.beginPath(); ctx.moveTo(x0, y0); ctx.lineTo(x1, y1);
+      ctx.strokeStyle = "rgba(180,140,80,0.55)"; ctx.lineWidth = 4;
+    }
+    ctx.stroke(); ctx.setLineDash([]);
+  }
+  if (beadsEl.checked) {
+    const gap = rot + Math.PI / 3;
+    for (let i = 0; i < 2; i++) {
+      const a = gap + 0.55 + i * 0.28, rr = rAt(58);
+      ctx.beginPath(); ctx.ellipse(cx + Math.cos(a) * rr, cy + Math.sin(a) * rr, 9, 6, a, 0, Math.PI * 2);
+      ctx.fillStyle = "#070d0a"; ctx.fill();
+    }
+  }
+  ctx.fillStyle = "#8a8074"; ctx.font = "12px ui-sans-serif";
+  ctx.fillText("dark arms. four of six. two gone.", 18, 28);
+  requestAnimationFrame(frame);
+}
+frame();
+</script>
+</body>
+</html>
