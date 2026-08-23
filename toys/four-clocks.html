@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Four clocks — Helled is not Mankovich</title>
+  <style>
+    :root { color-scheme: dark; }
+    html, body { margin: 0; min-height: 100%; background: #07080c; color: #e8e0d4; font-family: Georgia, serif; }
+    header { padding: 24px 36px 0; }
+    h1 { font-weight: 400; font-size: 26px; margin: 0 0 8px; }
+    p, label { max-width: 46rem; line-height: 1.5; color: #b9b0a4; }
+    a { color: #8ec8c8; }
+    .warn { color: #e6c36a; }
+    .scar { color: #e07a5f; }
+    .chart { padding: 20px 36px 48px; max-width: 920px; }
+    .row { margin: 22px 0; }
+    .lab { display: flex; justify-content: space-between; gap: 12px; margin-bottom: 6px; }
+    .lab b { font-weight: 400; }
+    .lab span { color: #8a8074; font-size: 14px; }
+    .bar { height: 18px; background: #1a1814; }
+    .bar i { display: block; height: 100%; width: 0; transition: width .25s ease; }
+    .axis { display: flex; justify-content: space-between; color: #6a6258; font: 11px ui-sans-serif, system-ui; margin-bottom: 8px; }
+    .floors { display: flex; gap: 18px; margin: 12px 0 0; font: 14px ui-sans-serif, system-ui; }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>four clocks, two floors</h1>
+    <p class="warn">Helled 2015 gravity day is not Mankovich 2021 ring day. Hexagon slack vs the rings is 0.91%, not 0.64%.</p>
+    <p class="scar">Scar: subtracted from 38118 seconds. Mankovich is 38018. Off by 100 seconds.</p>
+    <div class="floors">
+      <label><input type="radio" name="floor" value="helled" checked /> floor = Helled 10h 32m 45s</label>
+      <label><input type="radio" name="floor" value="manko" /> floor = Mankovich 10h 33m 38s</label>
+    </div>
+    <p><a href="three-clocks.html">three clocks</a> / <a href="ring-seismograph.html">the one inside</a> / <a href="../SATURN.md">Saturn map</a> / <a href="../index.html">home</a></p>
+  </header>
+  <div class="chart">
+    <div class="axis"><span>0%</span><span>1.2%</span><span>2.4% slower than the chosen floor</span></div>
+    <div class="row"><div class="lab"><b style="color:#8ec8c8">Helled 2015</b><span id="lh"></span></div><div class="bar"><i id="bh" style="background:#8ec8c8"></i></div></div>
+    <div class="row"><div class="lab"><b style="color:#c8a090">Mankovich 2021</b><span id="lm"></span></div><div class="bar"><i id="bm" style="background:#c8a090"></i></div></div>
+    <div class="row"><div class="lab"><b style="color:#5ad2dc">hexagon jet</b><span id="lx"></span></div><div class="bar"><i id="bx" style="background:#5ad2dc"></i></div></div>
+    <div class="row"><div class="lab"><b style="color:#c4b07a">radio south</b><span id="ls"></span></div><div class="bar"><i id="bs" style="background:#c4b07a"></i></div></div>
+    <div class="row"><div class="lab"><b style="color:#e6c36a">radio north</b><span id="ln"></span></div><div class="bar"><i id="bn" style="background:#e6c36a"></i></div></div>
+    <p>Seconds: Helled 37965 · Mankovich 38018 (+53) · hexagon 38363 · radio S 38448 · radio N 38844.</p>
+  </div>
+<script>
+const S = { helled: 37965, manko: 38018, hex: 38363, south: 38448, north: 38844 };
+const AXIS = 0.024;
+function pct(value, floor) { return 100 * (value - floor) / floor; }
+function width(value, floor) {
+  const p = (value - floor) / floor;
+  return Math.max(0, Math.min(100, (p / AXIS) * 100));
+}
+function fmt(p) { return (p >= 0 ? "+" : "") + p.toFixed(2) + "%"; }
+function apply(floorKey) {
+  const floor = S[floorKey];
+  const rows = [
+    ["lh", "bh", S.helled, "10h 32m 45s — gravity"],
+    ["lm", "bm", S.manko, "10h 33m 38s — rings — Orion"],
+    ["lx", "bx", S.hex, "10h 39m 23s"],
+    ["ls", "bs", S.south, "10.68 h"],
+    ["ln", "bn", S.north, "10.79 h — then phase lost"],
+  ];
+  for (const [lid, bid, val, base] of rows) {
+    document.getElementById(lid).textContent = base + " — " + fmt(pct(val, floor));
+    document.getElementById(bid).style.width = width(val, floor) + "%";
+  }
+}
+for (const el of document.querySelectorAll('input[name=floor]')) {
+  el.addEventListener("change", () => apply(el.value));
+}
+apply("helled");
+</script>
+</body>
+</html>
