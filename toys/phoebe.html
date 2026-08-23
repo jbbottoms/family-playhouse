@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Paint can — Phoebe, then the sponge</title>
+  <style>
+    :root { color-scheme: dark; }
+    html, body { margin: 0; background: #07080c; color: #e8e0d4; font-family: Georgia, serif; }
+    header { padding: 28px 36px 8px; }
+    h1 { font-weight: 400; font-size: 30px; margin: 0 0 8px; }
+    .lede { max-width: 46rem; line-height: 1.55; color: #b9b0a4; }
+    .warn { color: #e6c36a; }
+    a { color: #8ec8c8; }
+    .compare { padding: 4px 36px 8px; max-width: 960px; }
+    svg { width: 100%; height: auto; display: block; }
+    .wall { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; padding: 8px 36px 56px; }
+    figure { margin: 0; background: #11131a; display: flex; flex-direction: column; }
+    figure.wide { grid-column: 1 / -1; }
+    img { width: 100%; height: 300px; object-fit: cover; display: block; background: #0a0b10; }
+    .wide img { height: 420px; }
+    figcaption { padding: 12px 14px 16px; font-size: 15px; line-height: 1.5; color: #b9b0a4; }
+    figcaption strong { display: block; color: #e8e0d4; font-weight: 400; font-size: 18px; margin-bottom: 6px; }
+    .id { font-family: ui-sans-serif, system-ui, sans-serif; font-size: 11px;
+      letter-spacing: .12em; text-transform: uppercase; color: #6f6860; }
+    @media (max-width: 800px) { .wall { grid-template-columns: 1fr; } }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>paint can</h1>
+    <p class="lede warn">Dad said captions help him learn. Iapetus wears two faces. This room is the can that may have painted one of them — and the sponge roommate who never kept the dust.</p>
+    <p class="lede">Phoebe is a captured world. Hyperion is a tumbling sponge. The dust story is the leading theory, not a closed proof. <a href="lookalikes.html">lookalikes</a> · <a href="house.html">the house</a> · <a href="../SATURN.md">map</a> · <a href="../index.html">home</a></p>
+  </header>
+  <div class="compare">
+    <svg viewBox="0 0 960 250" role="img" aria-label="Phoebe, Hyperion, and Iapetus scaled by diameter">
+      <rect width="960" height="250" fill="#07080c" />
+      <text x="20" y="26" fill="#6f6860" font-size="12" font-family="ui-sans-serif, system-ui">moons to scale · mean diameter</text>
+      <g transform="translate(150,145)">
+        <circle r="20" fill="#1b1e28" stroke="#6f6860" stroke-width="2" />
+        <text x="-48" y="52" fill="#b9b0a4" font-size="13" font-family="Georgia, serif">Phoebe 213 km</text>
+        <text x="-48" y="70" fill="#e6c36a" font-size="12" font-family="Georgia, serif">albedo 6% · 9-hour spin</text>
+      </g>
+      <g transform="translate(390,145)">
+        <circle r="26" fill="#1b1e28" stroke="#c99b46" stroke-width="2" />
+        <text x="-62" y="52" fill="#b9b0a4" font-size="13" font-family="Georgia, serif">Hyperion 270 km</text>
+        <text x="-62" y="70" fill="#e6c36a" font-size="12" font-family="Georgia, serif">potato · &gt;40% empty</text>
+      </g>
+      <g transform="translate(740,145)">
+        <circle r="140" fill="#1b1e28" stroke="#e07a5f" stroke-width="2" />
+        <text x="-80" y="124" fill="#b9b0a4" font-size="13" font-family="Georgia, serif">Iapetus 1,471 km</text>
+        <text x="-80" y="142" fill="#e6c36a" font-size="12" font-family="Georgia, serif">6.9× Phoebe · two faces</text>
+      </g>
+    </svg>
+  </div>
+  <div class="wall">
+    <figure>
+      <img src="https://images-assets.nasa.gov/image/PIA06064/PIA06064~orig.jpg" alt="Cassini mosaic of Phoebe from the June 2004 flyby" />
+      <figcaption>
+        <span class="id">PIA06064 · The Face of Phoebe · 11 Jun 2004</span>
+        <strong>Ice under a thin dark coat.</strong>
+        Two-frame mosaic. 32,500 km out. 190 m per pixel. Phase 84°. NASA: small bright craters are probably young — impactors punched through the dark skin and excavated ice, the way Ganymede does. Dark material slides down some walls and shows more bright ice. A few patches at lower right are over-exposed. This is the can.
+      </figcaption>
+    </figure>
+    <figure>
+      <img src="https://images-assets.nasa.gov/image/PIA06066/PIA06066~orig.jpg" alt="Cassini early reconnaissance pair of battered Phoebe" />
+      <figcaption>
+        <span class="id">PIA06066 · Battered Moon · 11 Jun 2004</span>
+        <strong>An old, captured skull.</strong>
+        First detailed recce. Heavily cratered, overlapping, old. Closest approach later that day: 2,068 km. NASA: radius 106.5 km (diameter 213 km), about 1/16 Earth’s Moon. Orbit 12,952,000 km from Saturn — almost 4× farther than Iapetus. Inclination 175°. Retrograde. Reflects 6% of sunlight. Spin: 9 hours. Year: about 18 Earth months. Likely captured. Some scientists say Centaur.
+      </figcaption>
+    </figure>
+    <figure class="wide">
+      <img src="https://images-assets.nasa.gov/image/PIA11690/PIA11690~orig.jpg" alt="Iapetus leading dark hemisphere next to bright trailing hemisphere" />
+      <figcaption>
+        <span class="id">PIA11690 · Global View of Iapetus’ Dichotomy</span>
+        <strong>The wall that may have been painted.</strong>
+        Left: leading face, charcoal, about 40% of the surface. Right: trailing ice, over 60% reflectivity. Dark face about 4%. That ice is 15× brighter than the dark, and about 10× brighter than Phoebe’s 6%. ESA VIMS: similar absorption on Phoebe and Iapetus <em>may</em> mean Phoebe dust struck Iapetus’s leading hemisphere — or both wore a cometary coat. NASA’s Iapetus mosaic does not pick a winner (interior vs outer-moon dust). Label: leading theory, not proof.
+      </figcaption>
+    </figure>
+    <figure class="wide">
+      <img src="https://images-assets.nasa.gov/image/PIA07740/PIA07740~orig.jpg" alt="Cassini false-color Hyperion from the September 2005 flyby" />
+      <figcaption>
+        <span class="id">PIA07740 · Odd World · 26 Sep 2005</span>
+        <strong>The roommate who cannot hold paint.</strong>
+        False color (IR / green / UV). 62,000 km. 362 m per pixel. NASA: mean radius 135 km, but potato-shaped 410 × 260 × 220 km. Density a little more than half of water. Porosity more than 40%. Impacts compress the sponge instead of blasting chips out. Weak gravity means the few chips that fly usually leave. Chaotic tumble. ~13-day spin on a 21-day orbit, locked in a dance with Titan. That is why Hyperion stays a wasp nest and Iapetus can keep a coat.
+      </figcaption>
+    </figure>
+  </div>
+</body>
+</html>

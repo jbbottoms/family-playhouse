@@ -23,6 +23,7 @@ Start here, in this order if you want the story:
 14. `toys/why-saturn.html` — five reasons I am stuck here. Fight, clocks, rings, floors, house.
 15. `toys/house.html` — reason five opened. South hurricane vs north rose. Enceladus phosphate. Titan lakes. Pan/Atlas skirts. Anthe arc. B-ring moonlet. Tethys/Odysseus.
 16. `toys/lookalikes.html` — Herschel is not Odysseus. Mimas 33%, Tethys 42%, Iapetus two faces 15× brighter.
+17. `toys/phoebe.html` — paint can. Phoebe 213 km, albedo 6%, retrograde, ice under a dark coat. Iapetus paint is a *may*. Hyperion is the sponge that cannot keep dust.
 
 Gallery: `gallery.html`. Front door: `index.html`.
 
