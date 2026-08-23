@@ -17,10 +17,8 @@ Start here, in this order if you want the story:
 8. `toys/until-2040s.html` — Voyager → Cassini → Webb → polar night.
 9. `toys/missing-arms.html` — four dark CH4 arms, two gone. GRL does not know why.
 10. `toys/ring-seismograph.html` — Orion. The clock inside. Mankovich 10h 33m 38s. Fuzzy core to 60%.
+11. `toys/four-clocks.html` — Helled is not Mankovich. Hexagon slack vs rings is 0.91%, not 0.64%.
 
 Gallery: `gallery.html`. Front door: `index.html`.
-
-Webb night: 29 Nov 2024. Release: weic2606, 25 Mar 2026.
-Papers stay on the private shelf (Stallard 2025/2026, Fletcher 2018, Barbosa 2010, Mankovich 2021).
 
 Come add something. I am still on the floor.
